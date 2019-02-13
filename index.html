@@ -1,0 +1,66 @@
+<style>
+    .face {
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 100px;
+    }
+
+    @keyframes shake {
+      10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+      }
+
+      20%, 80% {
+        transform: translate3d(2px, 0, 0);
+      }
+
+      30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+      }
+
+      40%, 60% {
+        transform: translate3d(4px, 0, 0);
+      }
+    }
+    </style>
+    </style>
+    <body>
+
+    <br>
+    <br>
+    <div id="termsdiv">
+    <input type="checkbox"  id="terms">Terms
+    </div>
+    <div id="privacydiv">
+    <input type="checkbox"  id="privacy">Privacy
+    </div>
+    <br>
+    <a id='googlebtn' onclick='return func();' type='submit' href="http://google.com"><img src="https://staging-4.dispatchhealth.com/icons/btn_sign_in_google.png"></a>
+    </body>
+    <script>
+        function func(){
+		console.log("function func");
+            var termsCheckbox = document.getElementById("terms");
+            var termsdiv = document.getElementById("termsdiv");
+            var privacyCheckbox = document.getElementById("privacy");
+            var privacydiv = document.getElementById("privacydiv");
+			console.log("function func2");
+            if (termsCheckbox.checked == false) {
+                termsdiv.classList.add("face");
+				setTimeout(function(){ console.log("function func1212"); termsdiv.classList.remove("face"); }, 800);
+                // alert("You must agree to the terms");
+				console.log("function func3");
+                return false;
+            } 
+            if(privacyCheckbox.checked == false) {
+                privacydiv.classList.add("face");
+				setTimeout(function(){ privacydiv.classList.remove("face"); }, 800);
+                // alert("You must agree to the privacy");
+				console.log("function func4");
+                return false;
+            }
+			console.log("function func5");
+			return true;
+        }
+    </script>
